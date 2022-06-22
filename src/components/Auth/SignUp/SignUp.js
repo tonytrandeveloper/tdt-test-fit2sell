@@ -124,7 +124,7 @@ const SignUp = (props) => {
 
     return (
         <>
-            {isLoading && <LoadingAction />}
+            {/*{isLoading && <LoadingAction />}*/}
             {/*<Auth*/}
             {/*    authTitle={type === CANAL ? 'Novo Canal' : 'Novo Fornecedor'}*/}
             {/*    authDescription={type === CANAL ? "Você está se registrando como um Canal" : "Você está se registrando como um Fornecedor"}*/}
