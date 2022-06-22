@@ -1,14 +1,14 @@
 // import Logo from "../../assets/images/logo.png";
 import "./SignUp.css";
-import LabelAndInput from "../../../themes/LabelAndInput/LabelAndInput";
+// import LabelAndInput from "../../../themes/LabelAndInput/LabelAndInput";
 import axios from "axios";
 import React, {useEffect, useState} from "react";
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
-import {NavLink} from "react-router-dom";
+// import {NavLink} from "react-router-dom";
 import Auth from "../Auth/Auth";
 import * as links from '../../../utils/links'
 import signup_1 from "../../../assets/images/signup_1.png";
-import signup_2 from "../../../assets/images/signup_2.png";
+// import signup_2 from "../../../assets/images/signup_2.png";
 import {CANAL} from "../../../utils/constants";
 
 const initialDataSignUp = {
@@ -125,86 +125,89 @@ const SignUp = (props) => {
     return (
         <>
             {isLoading && <LoadingAction />}
-            <Auth
-                authTitle={type === CANAL ? 'Novo Canal' : 'Novo Fornecedor'}
-                authDescription={type === CANAL ? "Você está se registrando como um Canal" : "Você está se registrando como um Fornecedor"}
-                authFields={[
-                    {
-                        label: 'E-mail',
-                        placeholder: 'Digite seu e-mail',
-                        name: 'email',
-                        value: dataAuth?.email ?? "",
-                        type: 'text',
-                        setField: (value) => {
-                            setDataSingUp(prev => ({
-                                ...prev,
-                                email: value
-                            }))
-                        },
-                        error: errorField?.email ?? ""
-                    },
-                    {
-                        label: 'Nome',
-                        placeholder: 'Digite seu nome',
-                        name: 'name',
-                        value: dataAuth?.name ?? "",
-                        type: 'text',
-                        setField: (value) => {
-                            setDataSingUp(prev => ({
-                                ...prev,
-                                name: value
-                            }))
-                        },
-                        error: errorField?.name ?? ""
-                    },
-                    {
-                        label: 'Senha',
-                        placeholder: 'Digite sua senha',
-                        name: 'password',
-                        value: dataAuth?.password ?? "",
-                        type: 'password',
-                        setField: (value) => {
-                            setDataSingUp(prev => ({
-                                ...prev,
-                                password: value
-                            }))
-                        },
-                        error: errorField?.password ?? ""
-                    },
-                    {
-                        label: 'Concordo com os Termos de Uso',
-                        name: 'isAgree',
-                        value: !!dataAuth?.isAgree,
-                        type: 'checkbox',
-                        setField: (value) => {
-                            setDataSingUp(prev => ({
-                                ...prev,
-                                isAgree: value
-                            }))
-                        },
-                        error: errorField?.isAgree ?? ""
-                    }
-                ]}
-                authSubmit={"criar conta"}
-                authFooter={[
-                    {
-                        text1: 'Voltar para',
-                        text2: 'Login',
-                        link: type === CANAL ? links.SIGNIN_CANAL: links.SIGNIN_FORNECEDOR
-                    },
-                    {
-                        text1: 'Registrar-se como',
-                        text2: type === CANAL ? 'Fornecedor' : 'Canal',
-                        link: type === CANAL ? links.SIGNUP_FORNECEDOR : links.SIGNUP_CANAL
-                    }
-                ]}
-                authImage={signup_1}
-                onsubmit={() => {
-                    onsubmit()
-                }}
-                successMessage={success ? 'Usuário cadastrado com sucesso!' : ""}
-                errorMessage={error ?? ""}
-            />
+            {/*<Auth*/}
+            {/*    authTitle={type === CANAL ? 'Novo Canal' : 'Novo Fornecedor'}*/}
+            {/*    authDescription={type === CANAL ? "Você está se registrando como um Canal" : "Você está se registrando como um Fornecedor"}*/}
+            {/*    authFields={[*/}
+            {/*        {*/}
+            {/*            label: 'E-mail',*/}
+            {/*            placeholder: 'Digite seu e-mail',*/}
+            {/*            name: 'email',*/}
+            {/*            value: dataAuth?.email ?? "",*/}
+            {/*            type: 'text',*/}
+            {/*            setField: (value) => {*/}
+            {/*                setDataSingUp(prev => ({*/}
+            {/*                    ...prev,*/}
+            {/*                    email: value*/}
+            {/*                }))*/}
+            {/*            },*/}
+            {/*            error: errorField?.email ?? ""*/}
+            {/*        },*/}
+            {/*        {*/}
+            {/*            label: 'Nome',*/}
+            {/*            placeholder: 'Digite seu nome',*/}
+            {/*            name: 'name',*/}
+            {/*            value: dataAuth?.name ?? "",*/}
+            {/*            type: 'text',*/}
+            {/*            setField: (value) => {*/}
+            {/*                setDataSingUp(prev => ({*/}
+            {/*                    ...prev,*/}
+            {/*                    name: value*/}
+            {/*                }))*/}
+            {/*            },*/}
+            {/*            error: errorField?.name ?? ""*/}
+            {/*        },*/}
+            {/*        {*/}
+            {/*            label: 'Senha',*/}
+            {/*            placeholder: 'Digite sua senha',*/}
+            {/*            name: 'password',*/}
+            {/*            value: dataAuth?.password ?? "",*/}
+            {/*            type: 'password',*/}
+            {/*            setField: (value) => {*/}
+            {/*                setDataSingUp(prev => ({*/}
+            {/*                    ...prev,*/}
+            {/*                    password: value*/}
+            {/*                }))*/}
+            {/*            },*/}
+            {/*            error: errorField?.password ?? ""*/}
+            {/*        },*/}
+            {/*        {*/}
+            {/*            label: 'Concordo com os Termos de Uso',*/}
+            {/*            name: 'isAgree',*/}
+            {/*            value: !!dataAuth?.isAgree,*/}
+            {/*            type: 'checkbox',*/}
+            {/*            setField: (value) => {*/}
+            {/*                setDataSingUp(prev => ({*/}
+            {/*                    ...prev,*/}
+            {/*                    isAgree: value*/}
+            {/*                }))*/}
+            {/*            },*/}
+            {/*            error: errorField?.isAgree ?? ""*/}
+            {/*        }*/}
+            {/*    ]}*/}
+            {/*    authSubmit={"criar conta"}*/}
+            {/*    authFooter={[*/}
+            {/*        {*/}
+            {/*            text1: 'Voltar para',*/}
+            {/*            text2: 'Login',*/}
+            {/*            link: type === CANAL ? links.SIGNIN_CANAL: links.SIGNIN_FORNECEDOR*/}
+            {/*        },*/}
+            {/*        {*/}
+            {/*            text1: 'Registrar-se como',*/}
+            {/*            text2: type === CANAL ? 'Fornecedor' : 'Canal',*/}
+            {/*            link: type === CANAL ? links.SIGNUP_FORNECEDOR : links.SIGNUP_CANAL*/}
+            {/*        }*/}
+            {/*    ]}*/}
+            {/*    authImage={signup_1}*/}
+            {/*    onsubmit={() => {*/}
+            {/*        onsubmit()*/}
+            {/*    }}*/}
+            {/*    successMessage={success ? 'Usuário cadastrado com sucesso!' : ""}*/}
+            {/*    errorMessage={error ?? ""}*/}
+            {/*/>*/}
+            <div>
+                SignUp
+            </div>
         </>
     )
 }
