@@ -5,11 +5,11 @@ import axios from "axios";
 import React, {useEffect, useState} from "react";
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 // import {NavLink} from "react-router-dom";
-import Auth from "../Auth/Auth";
-import * as links from '../../../utils/links'
-import signup_1 from "../../../assets/images/signup_1.png";
+// import Auth from "../Auth/Auth";
+// import * as links from '../../../utils/links'
+// import signup_1 from "../../../assets/images/signup_1.png";
 // import signup_2 from "../../../assets/images/signup_2.png";
-import {CANAL} from "../../../utils/constants";
+// import {CANAL} from "../../../utils/constants";
 
 const initialDataSignUp = {
     email: '',
