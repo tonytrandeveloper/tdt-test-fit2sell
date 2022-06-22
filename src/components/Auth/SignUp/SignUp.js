@@ -1,8 +1,8 @@
 // import Logo from "../../assets/images/logo.png";
 import "./SignUp.css";
 // import LabelAndInput from "../../../themes/LabelAndInput/LabelAndInput";
-import axios from "axios";
-import React, {useEffect, useState} from "react";
+// import axios from "axios";
+import React from "react";
 import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 // import {NavLink} from "react-router-dom";
 // import Auth from "../Auth/Auth";
@@ -11,24 +11,24 @@ import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 // import signup_2 from "../../../assets/images/signup_2.png";
 // import {CANAL} from "../../../utils/constants";
 
-const initialDataSignUp = {
-    email: '',
-    name: '',
-    password: '',
-    isAgree: false,
-}
-
-const initErrorField = {
-    email: undefined,
-    name: undefined,
-    password: undefined,
-    isAgree: undefined,
-}
-
-const validateEmail = (email) => {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
+// const initialDataSignUp = {
+//     email: '',
+//     name: '',
+//     password: '',
+//     isAgree: false,
+// }
+//
+// const initErrorField = {
+//     email: undefined,
+//     name: undefined,
+//     password: undefined,
+//     isAgree: undefined,
+// }
+//
+// const validateEmail = (email) => {
+//     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//     return re.test(String(email).toLowerCase());
+// }
 
 
 const SignUp = (props) => {
@@ -36,91 +36,91 @@ const SignUp = (props) => {
         type
     } = props;
     console.log(type)
-    const [dataAuth, setDataSingUp] = useState({...initialDataSignUp});
-    const [error, setError] = useState(null);
-    const [success, setSuccess] = useState(false);
-    const [errorField, setErrorField] = useState({...initErrorField});
-    const [isLoading, setIsLoading] = useState(false)
-
-    const onsubmit = () => {
-        let dataErrorField = {};
-
-        if (dataAuth.name.trim() === '') {
-            dataErrorField = {
-                ...dataErrorField,
-                name: 'Nome é obrigatório.'
-            }
-        } else if (dataAuth.name.trim().length > 15) {
-            dataErrorField = {
-                ...dataErrorField,
-                name: 'Nome não pode ter mais que 15 caracteres'
-            }
-        }
-        if (dataAuth.email.trim() === '') {
-            dataErrorField = {
-                ...dataErrorField,
-                email: 'Email obrigatório.'
-            }
-        } else if (!validateEmail(dataAuth.email.trim())) {
-            dataErrorField = {
-                ...dataErrorField,
-                email: 'Email inválido.'
-            }
-        }
-        if (dataAuth.password.trim() === '') {
-            dataErrorField = {
-                ...dataErrorField,
-                password: 'Senha obrigatória'
-            }
-        } else if (dataAuth.password.trim().length < 6) {
-            dataErrorField = {
-                ...dataErrorField,
-                password: 'Senha tem que ter no mínimo 6 dígitos.'
-            }
-        }
-        if (!dataAuth.isAgree) {
-            dataErrorField = {
-                ...dataErrorField,
-                isAgree: 'Concordo com os Termos de Uso.'
-            }
-        }
-        setSuccess(false)
-        if (Object.keys(dataErrorField).length === 0) {
-            setIsLoading(true)
-            setError(null)
-            axios.post(`${process.env.REACT_APP_API_BASE_URL}/usuario`, {
-                name: dataAuth.name,
-                password: dataAuth.password,
-                email: dataAuth.email.trim(),
-                type: type
-            })
-                .then(res => {
-                    if (res.status === 200) {
-                        setIsLoading(false)
-                        setSuccess(true)
-                        setDataSingUp({
-                            ...initialDataSignUp
-                        })
-                    } else {
-                        throw new Error();
-                    }
-                })
-                .catch(err => {
-                    setIsLoading(false)
-                    setError(err.response?.data?.error ?? "erro" )
-                })
-        } else {
-            setErrorField(prev => {
-                return {
-                    ...prev,
-                    ...dataErrorField
-                }
-            })
-        }
-
-    }
-
-    console.log(errorField)
+    // const [dataAuth, setDataSingUp] = useState({...initialDataSignUp});
+    // const [error, setError] = useState(null);
+    // const [success, setSuccess] = useState(false);
+    // const [errorField, setErrorField] = useState({...initErrorField});
+    // const [isLoading, setIsLoading] = useState(false)
+    //
+    // const onsubmit = () => {
+    //     let dataErrorField = {};
+    //
+    //     if (dataAuth.name.trim() === '') {
+    //         dataErrorField = {
+    //             ...dataErrorField,
+    //             name: 'Nome é obrigatório.'
+    //         }
+    //     } else if (dataAuth.name.trim().length > 15) {
+    //         dataErrorField = {
+    //             ...dataErrorField,
+    //             name: 'Nome não pode ter mais que 15 caracteres'
+    //         }
+    //     }
+    //     if (dataAuth.email.trim() === '') {
+    //         dataErrorField = {
+    //             ...dataErrorField,
+    //             email: 'Email obrigatório.'
+    //         }
+    //     } else if (!validateEmail(dataAuth.email.trim())) {
+    //         dataErrorField = {
+    //             ...dataErrorField,
+    //             email: 'Email inválido.'
+    //         }
+    //     }
+    //     if (dataAuth.password.trim() === '') {
+    //         dataErrorField = {
+    //             ...dataErrorField,
+    //             password: 'Senha obrigatória'
+    //         }
+    //     } else if (dataAuth.password.trim().length < 6) {
+    //         dataErrorField = {
+    //             ...dataErrorField,
+    //             password: 'Senha tem que ter no mínimo 6 dígitos.'
+    //         }
+    //     }
+    //     if (!dataAuth.isAgree) {
+    //         dataErrorField = {
+    //             ...dataErrorField,
+    //             isAgree: 'Concordo com os Termos de Uso.'
+    //         }
+    //     }
+    //     setSuccess(false)
+    //     if (Object.keys(dataErrorField).length === 0) {
+    //         setIsLoading(true)
+    //         setError(null)
+    //         axios.post(`${process.env.REACT_APP_API_BASE_URL}/usuario`, {
+    //             name: dataAuth.name,
+    //             password: dataAuth.password,
+    //             email: dataAuth.email.trim(),
+    //             type: type
+    //         })
+    //             .then(res => {
+    //                 if (res.status === 200) {
+    //                     setIsLoading(false)
+    //                     setSuccess(true)
+    //                     setDataSingUp({
+    //                         ...initialDataSignUp
+    //                     })
+    //                 } else {
+    //                     throw new Error();
+    //                 }
+    //             })
+    //             .catch(err => {
+    //                 setIsLoading(false)
+    //                 setError(err.response?.data?.error ?? "erro" )
+    //             })
+    //     } else {
+    //         setErrorField(prev => {
+    //             return {
+    //                 ...prev,
+    //                 ...dataErrorField
+    //             }
+    //         })
+    //     }
+    //
+    // }
+    //
+    // console.log(errorField)
 
     return (
         <>
