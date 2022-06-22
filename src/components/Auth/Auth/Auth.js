@@ -121,10 +121,10 @@ const Auth = (props) => {
                                                     <div>
                                                         {item.text1}
                                                     </div>
-                                                    <a
-                                                        href={item.link}
+                                                    <Link
+                                                        to={item.link}
                                                     >   {item.text2}
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                             )
                                         })
