@@ -3,7 +3,7 @@ import "./SignUp.css";
 // import LabelAndInput from "../../../themes/LabelAndInput/LabelAndInput";
 // import axios from "axios";
 import React from "react";
-// import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
+import LoadingAction from "../../../themes/LoadingAction/LoadingAction";
 // import {NavLink} from "react-router-dom";
 // import Auth from "../Auth/Auth";
 // import * as links from '../../../utils/links'
