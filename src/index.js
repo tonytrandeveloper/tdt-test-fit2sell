@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App1 from './App1';
+import App from './App1';
 import reportWebVitals from './reportWebVitals';
 import AuthContextProvider from "./contexts/AuthContext";
 import {BrowserRouter} from "react-router-dom";
@@ -12,7 +12,7 @@ root.render(
   <React.StrictMode>
       <AuthContextProvider>
           <BrowserRouter>
-              <App1/>
+              <App/>
           </BrowserRouter>
       </AuthContextProvider>
   </React.StrictMode>
